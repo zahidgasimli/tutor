@@ -1,0 +1,105 @@
+{
+    "name": "tutor.az",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "yarn:install": "yarn --silent",
+        "start:dev": "react-scripts start",
+        "analyze": "source-map-explorer 'build/static/js/*.js' --exclude-source-map --gzip",
+        "build": "CI=false react-scripts build",
+        "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
+        "lint": "tsc --noEmit && eslint \"src/**/*.{js,jsx,ts,tsx}\"",
+        "lint:fix": "yarn lint --fix",
+        "i18next:parse": "i18next 'src/**/*.{ts,tsx}'"
+    },
+    "dependencies": {
+        "@emotion/react": "11.10.6",
+        "@emotion/styled": "11.10.6",
+        "@mui/icons-material": "5.11.11",
+        "@mui/lab": "^5.0.0-alpha.124",
+        "@mui/material": "5.11.14",
+        "@mui/x-data-grid": "^6.0.3",
+        "@mui/x-date-pickers": "6.0.3",
+        "axios": "^1.3.6",
+        "clsx": "^1.1.1",
+        "dompurify": "^3.0.3",
+        "formik": "2.2.9",
+        "formik-mui": "5.0.0-alpha.0",
+        "formik-mui-x-date-pickers": "^0.0.1",
+        "i18next": "^19.8.7",
+        "i18next-browser-languagedetector": "^6.0.1",
+        "i18next-chained-backend": "^2.0.1",
+        "i18next-http-backend": "^1.1.0",
+        "i18next-localstorage-backend": "^3.1.2",
+        "jwt-decode": "^2.2.0",
+        "luxon": "3.3.0",
+        "query-string": "^6.13.2",
+        "react": "^17.0.2",
+        "react-countup": "^6.4.2",
+        "react-dom": "^17.0.2",
+        "react-flip-move": "^3.0.5",
+        "react-i18next": "^11.8.5",
+        "react-image-lightbox": "^5.1.4",
+        "react-phone-input-mui": "^2.9.4",
+        "react-query": "^3.39.3",
+        "react-quill": "^2.0.0",
+        "react-router-dom": "^6.8.1",
+        "react-scripts": "4.0.3",
+        "react-use": "^15.3.4",
+        "smoothscroll-polyfill": "^0.4.4",
+        "swiper": "^9.2.0",
+        "yarn": "^1.22.17",
+        "yup": "1.0.2",
+        "zustand": "^4.3.4"
+    },
+    "optionalDependencies": {
+        "fsevents": "2.1.3"
+    },
+    "devDependencies": {
+        "@types/dompurify": "^3.0.2",
+        "@types/lodash": "^4.14.161",
+        "@types/luxon": "3.2.0",
+        "@types/node": "^14.11.1",
+        "@types/react": "17.0.38",
+        "@types/react-dom": "17.0.11",
+        "@types/react-router-dom": "^5.3.3",
+        "@types/smoothscroll-polyfill": "^0.3.1",
+        "@types/yup": "^0.32.0",
+        "@typescript-eslint/eslint-plugin": "5.9.0",
+        "@typescript-eslint/parser": "5.9.0",
+        "brotli-webpack-plugin": "^1.1.0",
+        "compression-webpack-plugin": "^10.0.0",
+        "eslint-config-prettier": "8.3.0",
+        "eslint-plugin-prettier": "4.0.0",
+        "eslint-plugin-react": "7.28.0",
+        "husky": "^4.3.0",
+        "i18next-parser": "^3.6.0",
+        "lint-staged": "^10.4.0",
+        "prettier": "^2.1.2",
+        "source-map-explorer": "^2.5.2",
+        "typescript": "4.5.4"
+    },
+    "browserslist": {
+        "production": [
+            ">3%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "src/**/*.{js,jsx,ts,tsx}": [
+            "yarn format",
+            "yarn lint:fix"
+        ]
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "no": "No",
+    "yes": "Yes",
+    "areYouSure": "Are You Sure?",
+    "logoutTitle": "Are you sure you want to logout?",
+    "logoutDescription": "If you log out, you will need to log in again to use your dashboard",
+    "courseWishlistTitle": "You must be logged in to add to your favorites",
+    "courseWishlistDescription": "To add a course to your favourites, you must be logged in first. Would you like to be redirected to the login page?",
+    "courseRateTitle": "You must be logged in to rate",
+    "courseRateDescription": "To rate a course, you must first login. Would you like to be redirected to the login page?",
+    "loginToApplyTitle": "You must login to apply",
+    "loginToApplyDescription": "To apply for a course, you must first login. Would you like to be redirected to the login page?",
+    "applyToCourseDescription": "Are you sure you want to apply to the course? Number of remaining applications: {{applyLimit}}",
+    "buyApplyTitle": "Apply",
+    "buyApplyDescription": "Your number of applications is 0. To apply for a course, you must first purchase an application. Would you like to be redirected to purchase page?",
+    "accountUnsavedChangesTitle": "Unsaved changes",
+    "accountUnsavedChangesDescription": "You have unsaved changes, are you sure you want to continue?"
+}

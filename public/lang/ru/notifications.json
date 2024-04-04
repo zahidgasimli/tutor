@@ -1,0 +1,6 @@
+{
+    "succesNotificationTitle": "Успешная операция",
+    "errorNotificationTitle": "Произошла ошибка",
+    "warningNotificationTitle": "Предупреждение",
+    "infoNotificationTitle": "Информация"
+}

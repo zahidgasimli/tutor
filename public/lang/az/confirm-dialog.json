@@ -1,0 +1,18 @@
+{
+    "no": "Xeyr",
+    "yes": "Bəli",
+    "areYouSure": "Əminsinizmi ?",
+    "logoutTitle": "Sistemdən çıxmaq istədiyinizdən əminsinizmi?",
+    "logoutDescription": "Sistemdən çıxış etsəniz idarəetmə panelinizi istifadə etmək üçün yenidən giriş etməli olacaqsınız",
+    "courseWishlistTitle": "Bəyəndiklərinizə əlavə etmək üçün giriş etmək lazımdır",
+    "courseWishlistDescription": "Kursu bəyəndiklərinizə əlavə etmək üçün ilk öncə giriş etməyiniz lazımdır. Giriş səhifəsinə yönləndirilmək istəyirsinizmi?",
+    "courseRateTitle": "Qiymətləndirmə üçün giriş etmək lazımdır",
+    "courseRateDescription": "Kursu qiymətləndirmək üçün ilk öncə giriş etməyiniz lazımdır. Giriş səhifəsinə yönləndirilmək istəyirsinizmi?",
+    "loginToApplyTitle": "Müraciət etmək üçün giriş etmək lazımdır",
+    "loginToApplyDescription": "Kursa müraciət etmək üçün ilk öncə giriş etməyiniz lazımdır. Giriş səhifəsinə yönləndirilmək istəyirsinizmi?",
+    "applyToCourseDescription": "Kursa müraciət etmək istədiyinizdən əminsinizmi ? Qalan müraciət sayınız: {{applyLimit}}",
+    "buyApplyTitle": "Müraciət alın",
+    "buyApplyDescription": "Sizin müraciət sayınız 0-dır. Kursa müraciət etmək üçün ilk öncə müraciət almalısınız. Müraciət almaq səhifəsinə yönləndirilmək istəyirsinizmi?",
+    "accountUnsavedChangesTitle": "Yadda saxlanılmayan dəyişikliklər",
+    "accountUnsavedChangesDescription": "Yadda saxlanılmayan dəyişiklikləriniz var, davam etmək istədiyinizə əminsinizmi?"
+}

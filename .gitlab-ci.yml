@@ -1,0 +1,84 @@
+image: alpine:latest
+
+stages:
+  - build
+  - deploy
+
+# Define the build job
+stage_build:
+  stage: build
+  image: node:16.15.0
+  script:
+    - apt-get update && apt-get install -y curl
+    - curl 'https://api.pinghome.io/v1/heartbeat/4e846e4e-6614-4ab6-8d08-3ed4b81ec958?result=run&message=build-started'
+    - yarn config set cache-folder .yarn
+    - yarn install --pure-lockfile --cache-folder .yarn
+    - yarn build
+    - curl 'https://api.pinghome.io/v1/heartbeat/4e846e4e-6614-4ab6-8d08-3ed4b81ec958?result=complete&message=build-finished'
+  artifacts:
+    expire_in: 1 hour
+    paths:
+      - ./build
+  only:
+    - dev
+  variables:
+    REACT_APP_API_URL: https://stage-api.tutor.az
+    REACT_APP_ENV: stage
+
+prod_build:
+  stage: build
+  image: node:16.15.0
+  script:
+    - apt-get update && apt-get install -y curl
+    - curl 'https://api.pinghome.io/v1/heartbeat/9da887df-65cd-49f1-8066-d59325bf09e9?result=run&message=build-started'
+    - yarn config set cache-folder .yarn
+    - yarn install --pure-lockfile --cache-folder .yarn
+    - yarn build
+    - curl 'https://api.pinghome.io/v1/heartbeat/9da887df-65cd-49f1-8066-d59325bf09e9?result=complete&message=build-finished'
+  artifacts:
+    expire_in: 1 hour
+    paths:
+      - ./build
+  only:
+    - prod
+  variables:
+    REACT_APP_API_URL: https://api.tutor.az
+    REACT_APP_ENV: prod
+
+# Define the deploy job
+stage_deploy:
+  stage: deploy
+  image: python:latest
+  script:
+    - apt-get update && apt-get install -y python3-pip && apt-get install -y curl
+    - curl 'https://api.pinghome.io/v1/heartbeat/4e846e4e-6614-4ab6-8d08-3ed4b81ec958?result=run&message=deploy-started'
+    - pip3 install awscli
+    - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+    - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+    - aws s3 sync ./build s3://stage.tutor.az --delete
+    - curl 'https://api.pinghome.io/v1/heartbeat/4e846e4e-6614-4ab6-8d08-3ed4b81ec958?result=complete&message=deploy-finished'
+    - aws cloudfront create-invalidation --distribution-id $STAGE_WEBSITE_CF_ID --paths '/*'
+    - curl 'https://api.pinghome.io/v1/heartbeat/4e846e4e-6614-4ab6-8d08-3ed4b81ec958?result=complete&message=cloud-front-invalidated'
+  dependencies:
+    - stage_build
+  only:
+    - dev
+
+
+prod_deploy:
+  stage: deploy
+  image: python:latest
+  script:
+    - apt-get update && apt-get install -y python3-pip && apt-get install -y curl
+    - curl 'https://api.pinghome.io/v1/heartbeat/9da887df-65cd-49f1-8066-d59325bf09e9?result=run&message=deploy-started'
+    - pip3 install awscli
+    - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+    - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+    - aws s3 sync ./build s3://tutor.az --delete
+    - curl 'https://api.pinghome.io/v1/heartbeat/9da887df-65cd-49f1-8066-d59325bf09e9?result=complete&message=deploy-finished'
+    - aws cloudfront create-invalidation --distribution-id $PROD_WEBSITE_CF_ID --paths '/*'
+    - curl 'https://api.pinghome.io/v1/heartbeat/9da887df-65cd-49f1-8066-d59325bf09e9?result=complete&message=cloud-front-invalidated'
+  dependencies:
+    - prod_build
+  only:
+    - prod

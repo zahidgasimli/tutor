@@ -1,0 +1,7 @@
+Host: https://tutor.az
+
+User-agent: *
+
+Disallow: /dashboard
+
+Sitemap: https://api.tutor.az/sitemap.xml

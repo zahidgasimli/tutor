@@ -1,0 +1,9 @@
+{
+    "products": "Packages",
+    "history": "Payment history",
+    "pay": "Pay",
+    "remainingApplies": "Remaining request count",
+    "paymentSuccess": "Your payment was successful!",
+    "paymentFailed": "Your payment failed! Please try again",
+    "seeHistory": "See payment history"
+}
